@@ -415,4 +415,10 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
+<<<<<<< HEAD
 /*hola*/
+=======
+/*hola */
+/*como estas  */
+/*bien  */
+>>>>>>> 21a03f8150ebde81ebc44282e096a54c297414fe
