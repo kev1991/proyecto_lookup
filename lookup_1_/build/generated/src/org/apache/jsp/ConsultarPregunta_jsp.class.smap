@@ -1,0 +1,25 @@
+SMAP
+ConsultarPregunta_jsp.java
+JSP
+*S JSP
+*F
++ 0 ConsultarPregunta.jsp
+ConsultarPregunta.jsp
++ 1 Sesiones.jsp
+Sesiones.jsp
+*L
+5,7:53
+5#1,10:59
+14:69
+16,10:71
+25,10:81
+35:91,3
+36,13:94
+11#0,20:106
+31,6:127
+36,3:133
+39:136,3
+40,15:139
+55:154,3
+56,10:157
+*E

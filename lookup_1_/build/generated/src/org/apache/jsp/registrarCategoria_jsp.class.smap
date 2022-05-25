@@ -1,0 +1,24 @@
+SMAP
+registrarCategoria_jsp.java
+JSP
+*S JSP
+*F
++ 0 registrarCategoria.jsp
+registrarCategoria.jsp
++ 1 Sesiones.jsp
+Sesiones.jsp
+*L
+5,4:50
+5#1,10:53
+14:63
+16,10:65
+25,10:75
+35:85,3
+36,13:88
+8#0,23:100
+31:124,2
+32:126,3
+33:129
+34,3:130,3
+37,6:139
+*E
