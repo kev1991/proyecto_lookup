@@ -88,28 +88,7 @@ public class PersonaControlador extends HttpServlet {
                 }
                 break;
                 
-            //cambiar contraseña case 4 y case 5
-//            case 4:
-//                perVO = perDAO.ConsultarPersona(per_numero_documento);
-//                if (perVO != null) {
-//                    request.setAttribute("PersonaConsultada", perVO);
-//                    request.getRequestDispatcher("ActualizarContraseña.jsp").forward(request, response);
-//
-//                } else {
-////                    request.setAttribute("PersonaConsultada", "La persona no se registro corectamente !!");
-//                    request.getRequestDispatcher("CambiarContraseña.jsp").forward(request, response);
-//                }
-//                break;
-//
-//            case 5:
-//                if (perDAO.actualizarRegistro()) {
-////                    request.setAttribute("mensajeExito", "La persona se registro corectamente !!");
-//                    request.getRequestDispatcher("CambiarContraseña.jsp").forward(request, response);
-//                } else {
-////                    request.setAttribute("mensajeError", "La persona no se registro corectamente !!");
-//                }
-//                request.getRequestDispatcher("ActualizarContraseña.jsp").forward(request, response);
-//                break;
+           
         }
     }
 

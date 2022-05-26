@@ -72,6 +72,15 @@ public class UsuarioControlador extends HttpServlet {
                     request.getRequestDispatcher("IniciarSesion.jsp").forward(request, response);
                 }
                 break;
+            case 2: //metodo para agrgar registro
+                if (usuDAO.agrgarRegistro()) {
+                    request.setAttribute("mensajeExito", "El usuario se registro corectamente !!");
+                } else {
+                    request.setAttribute("mensajeError", "El usuario no se registro corectamente !!");
+                }
+                request.getRequestDispatcher("registrarUsuario.jsp").forward(request, response);
+                break;
+                
         }
         
         

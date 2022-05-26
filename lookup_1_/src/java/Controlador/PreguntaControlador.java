@@ -41,11 +41,10 @@ public class PreguntaControlador extends HttpServlet {
         String pre_is_active = request.getParameter("txtActive");
         String pre_is_multiple = request.getParameter("txtMultiple");
         String pre_create_at = request.getParameter("txtFecha");
-        String pre_puntaje = request.getParameter("txtPuntaje");
         String id_cuestionario = request.getParameter("txtIDCues");
         int opcion = Integer.parseInt(request.getParameter("opcion"));
 
-        PreguntaVO preVO = new PreguntaVO(id_pregunta, pre_title, pre_descripcion, pre_is_active, pre_is_multiple, pre_create_at, pre_puntaje,id_cuestionario);
+        PreguntaVO preVO = new PreguntaVO(id_pregunta, pre_title, pre_descripcion, pre_is_active, pre_is_multiple, pre_create_at,id_cuestionario);
 
         PreguntaDAO preDAO = new PreguntaDAO(preVO);
 

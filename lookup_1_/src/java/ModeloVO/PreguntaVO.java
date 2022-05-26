@@ -10,19 +10,18 @@ package ModeloVO;
  * @author kebin
  */
 public class PreguntaVO {
-    private String id_pregunta, pre_title, pre_descripcion,pre_is_active, pre_is_multiple, pre_create_at, pre_puntaje, id_cuestionario;
+    private String id_pregunta, pre_title, pre_descripcion,pre_is_active, pre_is_multiple, pre_create_at,  id_cuestionario;
 
     public PreguntaVO() {
     }
 
-    public PreguntaVO(String id_pregunta, String pre_title, String pre_descripcion, String pre_is_active, String pre_is_multiple, String pre_create_at, String pre_puntaje, String id_cuestionario) {
+    public PreguntaVO(String id_pregunta, String pre_title, String pre_descripcion, String pre_is_active, String pre_is_multiple, String pre_create_at, String id_cuestionario) {
         this.id_pregunta = id_pregunta;
         this.pre_title = pre_title;
         this.pre_descripcion = pre_descripcion;
         this.pre_is_active = pre_is_active;
         this.pre_is_multiple = pre_is_multiple;
         this.pre_create_at = pre_create_at;
-        this.pre_puntaje = pre_puntaje;
         this.id_cuestionario = id_cuestionario;
     }
 
@@ -74,13 +73,6 @@ public class PreguntaVO {
         this.pre_create_at = pre_create_at;
     }
 
-    public String getPre_puntaje() {
-        return pre_puntaje;
-    }
-
-    public void setPre_puntaje(String pre_puntaje) {
-        this.pre_puntaje = pre_puntaje;
-    }
 
     public String getId_cuestionario() {
         return id_cuestionario;

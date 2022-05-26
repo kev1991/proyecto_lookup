@@ -19,7 +19,7 @@
         <center>
         <h1>Consultar Perosna!</h1>
 
-        <form method="post" action="Vehiculo">
+        <form method="post" action="Pregunta">
             <table border="">
 
                 <tr>
@@ -28,15 +28,15 @@
                 </tr>
 
                 <%
-                    PreguntaVO perVO = new PreguntaVO();
-                    PreguntaDAO perDAO = new PreguntaDAO(perVO);
-                    ArrayList<PreguntaVO> listaPreguntas = perDAO.Listar();
+                    PreguntaVO preVO = new PreguntaVO();
+                    PreguntaDAO preDAO = new PreguntaDAO(preVO);
+                    ArrayList<PreguntaVO> listaPreguntas = preDAO.Listar();
                     for (int i = 0; i < listaPreguntas.size(); i++) {
-                        perVO = listaPreguntas.get(i);
+                        preVO = listaPreguntas.get(i);
                 %>
 
                 <tr>
-                    <td> <%= perVO.getPre_descripcion()%></td>
+                    <td> <%= preVO.getPre_descripcion()%></td>
                     <td> 
                         <select name="txtPuntaje">
                             <option >Seleccione</option>

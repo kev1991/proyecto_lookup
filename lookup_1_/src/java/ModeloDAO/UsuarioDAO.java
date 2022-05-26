@@ -89,7 +89,36 @@ public class UsuarioDAO extends Conexion implements Crud {
 
     @Override
     public boolean actualizarRegistro() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+        //#1 armar la sentencia se usan los (?,?) para incrptar los datos
+            sql = "update usuario set user_name =?,id_perfil =?, user_password =?, user_is_active =?, id_persona=? where user_name =?";
+
+            // crear el camino donde va la sentancia usando el puente o el (prepareStatement)
+            puente = conexion.prepareStatement(sql);
+
+            //desicnamos los valores en los interrogantes
+            puente.setString(1, user_name);
+            puente.setString(2, id_perfil);
+            puente.setString(3, user_password);
+            puente.setString(4, user_is_active);
+            puente.setString(5, id_persona);
+            puente.setString(6, user_name);
+
+            puente.executeUpdate();
+            operacion = true;
+
+        } catch (SQLException e) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, e);
+
+        } finally {
+            try {
+                this.cerrarConexion();
+            } catch (Exception e) {
+                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+
+        return operacion;
     }
 
     @Override
@@ -151,4 +180,8 @@ public class UsuarioDAO extends Conexion implements Crud {
         }
         return listarUsuarios;
     }
+    
+    
+    
+    
 }

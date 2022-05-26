@@ -62,36 +62,70 @@ public final class ConsultarPregunta_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("\n");
       out.write("<!DOCTYPE html>\n");
 
-response.setHeader("Pragma", "No-cache");
-response.setHeader("Cache-control","no-cache,no-store,must-revalidate");
-response.setDateHeader("Expires",0);
+    response.setHeader("Pragma", "No-cache");
+    response.setHeader("Cache-control", "no-cache,no-store,must-revalidate");
+    response.setDateHeader("Expires", 0);
 
       out.write('\n');
 
-  HttpSession buscarSesion =(HttpSession)request.getSession();  
-  String usuario="";
-  if(buscarSesion.getAttribute("datosUsuario")== null){
-      request.getRequestDispatcher("Home.html").forward(request, response);      
-  }else{
-      UsuarioVO usuVO = (UsuarioVO)buscarSesion.getAttribute("datosUsuario");
-      usuario = usuVO.getUser_name();
- }
-  
+    HttpSession buscarSesion = (HttpSession) request.getSession();
+    String usuario = "";
+    if (buscarSesion.getAttribute("datosUsuario") == null) {
+        request.getRequestDispatcher("Home.html").forward(request, response);
+    } else {
+        UsuarioVO usuVO = (UsuarioVO) buscarSesion.getAttribute("datosUsuario");
+        usuario = usuVO.getUser_name();
+    }
+
 
       out.write("\n");
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
+      out.write("        <link rel=\"stylesheet\" href=\"./CSS/estilos-navbar.css\">\n");
       out.write("        <title>JSP Page</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
+      out.write("        <nav>\n");
+      out.write("            <ul class=\"menu-horizontal\">\n");
+      out.write("                <li><a href=\"Menu.jsp\">Inicio</a></li>\n");
+      out.write("                <li>\n");
+      out.write("                    <a href=\"Menu.jsp\">Admin</a>\n");
+      out.write("                    <ul class=\"menu-vertical\">\n");
+      out.write("                        <li><a href=\"registrarPerfil.jsp\">registrar perfil</a></li>\n");
+      out.write("                        <li><a href=\"ConsultarPerfil.jsp\">consultar perfil</a></li>\n");
+      out.write("                        <li><a href=\"registrarPersona.jsp\">registrar persona</a></li>\n");
+      out.write("                        <li><a href=\"ConsultarPersona.jsp\">consultar persona</a></li>\n");
+      out.write("                        \n");
+      out.write("                    </ul>\n");
+      out.write("                </li>\n");
+      out.write("                <li>\n");
+      out.write("                    <a href=\"Menu.jsp\">Encuestador</a>\n");
+      out.write("                    <ul class=\"menu-vertical\">\n");
+      out.write("                        <li> <a href=\"registrarCategoria.jsp\" style=\"text-decoration:none;\">registrar categoria</a> </li>\n");
+      out.write("                        <li><a href=\"registrarPregunta.jsp\">registrar pregunta</a> </li>\n");
+      out.write("                        \n");
+      out.write("                        <li> <a href=\"ListarRespuestas.jsp\">listar preguntas</a></li>\n");
+      out.write("                    </ul>\n");
+      out.write("                </li>\n");
+      out.write("                <li>\n");
+      out.write("                    <a href=\"Menu.jsp\">Encuestado</a>\n");
+      out.write("                    <ul class=\"menu-vertical\">\n");
+      out.write("                        <li> <a href=\"ConsultarPregunta.jsp\">consultar preguntas</a></li>\n");
+      out.write("                        <li></li>\n");
+      out.write("                    </ul>\n");
+      out.write("\n");
+      out.write("                </li>\n");
+      out.write("\n");
+      out.write("            </ul>\n");
+      out.write("        </nav>\n");
       out.write("    <center>\n");
       out.write("        <div style=\"float:right;\">\n");
-      out.write("            <h1 style=\"color: greenyellow\">  <br>                   \n");
-      out.write("                BIENVENIDO ");
+      out.write("            <h2 style=\"color: orange\">  <br>                   \n");
+      out.write("                ");
       out.print(usuario);
       out.write("\n");
-      out.write("            </h1>\n");
+      out.write("            </h2>\n");
       out.write("            <form method=\"post\" action=\"Sesiones\">\n");
       out.write("                <input type=\"submit\" value=\"Cerrar Sesion\">\n");
       out.write("            </form>\n");
@@ -100,8 +134,8 @@ response.setDateHeader("Expires",0);
       out.write("        </div><br><br>\n");
       out.write("        <div></div><br><br>\n");
       out.write("        <div></div><br><br>\n");
-      out.write("        </center>\n");
-      out.write("    </body>\n");
+      out.write("    </center>\n");
+      out.write("</body>\n");
       out.write("</html>\n");
       out.write("\n");
       out.write("<!DOCTYPE html>\n");
@@ -114,7 +148,7 @@ response.setDateHeader("Expires",0);
       out.write("        <center>\n");
       out.write("        <h1>Consultar Perosna!</h1>\n");
       out.write("\n");
-      out.write("        <form>\n");
+      out.write("        <form method=\"post\" action=\"Pregunta\">\n");
       out.write("            <table border=\"\">\n");
       out.write("\n");
       out.write("                <tr>\n");
@@ -137,7 +171,7 @@ response.setDateHeader("Expires",0);
       out.print( perVO.getPre_descripcion());
       out.write("</td>\n");
       out.write("                    <td> \n");
-      out.write("                        <select>\n");
+      out.write("                        <select name=\"txtPuntaje\">\n");
       out.write("                            <option >Seleccione</option>\n");
       out.write("                            <option value=\"1\">Siempre </option>\n");
       out.write("                            <option value=\"2\">Casi siempre</option>\n");

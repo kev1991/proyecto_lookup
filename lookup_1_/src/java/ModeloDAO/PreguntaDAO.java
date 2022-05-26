@@ -45,7 +45,6 @@ public class PreguntaDAO extends Conexion implements Crud {
             pre_is_active =preVO.getPre_is_active();
             pre_is_multiple =preVO.getPre_is_multiple();
             pre_create_at =preVO.getPre_create_at();
-            pre_puntaje =preVO.getPre_puntaje();
             id_cuestionario =preVO.getId_cuestionario();
         } catch (Exception e) {
             Logger.getLogger(PreguntaDAO.class.getName()).log(Level.SEVERE, null, e);
@@ -109,7 +108,7 @@ public class PreguntaDAO extends Conexion implements Crud {
         while(mensajero.next()){
          PreguntaVO preVO = new PreguntaVO(mensajero.getString(1), mensajero.getString(2),
                         mensajero.getString(3), mensajero.getString(4), mensajero.getString(5),
-                        mensajero.getString(6), mensajero.getString(7),  mensajero.getString(8));
+                        mensajero.getString(6), mensajero.getString(7));
         
          listaPreguntas.add(preVO);
          

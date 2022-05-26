@@ -134,10 +134,10 @@ CREATE TABLE `perfil` (
 --
 
 INSERT INTO `perfil` (`id_perfil`, `perfil`) VALUES
-(1, 'SuperAdmin'),
-(2, 'Admin'),
-(3, 'Encuestador'),
-(5, 'Encuestado');
+(1, 'Admin'),
+(2, 'Encuestador'),
+(3, 'Encuestado');
+
 
 -- --------------------------------------------------------
 
@@ -184,7 +184,6 @@ CREATE TABLE `pregunta` (
   `pre_is_active` tinyint(4) NOT NULL,
   `pre_is_multiple` tinyint(4) NOT NULL,
   `pre_create_at` date NOT NULL,
-  `pre_puntaje` int(5) NOT NULL,
   `id_cuestionario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -192,13 +191,13 @@ CREATE TABLE `pregunta` (
 -- Volcado de datos para la tabla `pregunta`
 --
 
-INSERT INTO `pregunta` (`id_pregunta`, `pre_title`, `pre_descripcion`, `pre_is_active`, `pre_is_multiple`, `pre_create_at`, `pre_puntaje`, `id_cuestionario`) VALUES
-(1, 'estrés', '1. Dolores en el cuello y espalda o tensión muscular.', 1, 1, '2022-03-27', 5, 1),
-(2, 'estrés', '2. Problemas gastrointestinales, úlcera péptica, acidez, problemas digestivos o del colon.  ', 1, 1, '2022-03-24', 4, 1),
-(3, 'EXTRALABORALES ', '1. Es fácil trasportarme entre mi casa y el trabajo', 1, 1, '2022-03-24', 5, 2),
-(4, 'EXTRALABORALES ', '2. Tengo que tomar varios medios de  transporte para llegar a mi lugar de trabajo ', 1, 1, '2022-03-15', 2, 2),
-(5, 'INTRALABORAL', '1. El ruido en el lugar donde trabajo es molesto ', 1, 1, '2022-03-15', 5, 3),
-(6, 'INTRALABORAL', 'En el lugar donde trabajo hace mucho frío', 1, 1, '2022-03-14', 2, 3);
+INSERT INTO `pregunta` (`id_pregunta`, `pre_title`, `pre_descripcion`, `pre_is_active`, `pre_is_multiple`, `pre_create_at`, `id_cuestionario`) VALUES
+(1, 'estrés', '1. Dolores en el cuello y espalda o tensión muscular.', 1, 1, '2022-03-27', 1),
+(2, 'estrés', '2. Problemas gastrointestinales, úlcera péptica, acidez, problemas digestivos o del colon.', 1, 1, '2022-03-24', 1),
+(3, 'EXTRALABORALES ', '1. Es fácil trasportarme entre mi casa y el trabajo', 1, 1, '2022-03-24', 2),
+(4, 'EXTRALABORALES ', '2. Tengo que tomar varios medios de  transporte para llegar a mi lugar de trabajo', 1, 1, '2022-03-15', 2),
+(5, 'INTRALABORAL', '1. El ruido en el lugar donde trabajo es molesto ', 1, 1, '2022-03-15', 3),
+(6, 'INTRALABORAL', 'En el lugar donde trabajo hace mucho frío', 1, 1, '2022-03-14', 3);
 
 -- --------------------------------------------------------
 
@@ -210,6 +209,7 @@ CREATE TABLE `respuesta` (
   `id_respuesta` int(11) NOT NULL,
   `id_Op_respuesta` int(11) DEFAULT NULL,
   `id_pregunta` int(11) NOT NULL,
+  `res_puntaje` int(5) NOT NULL,
   `id_diligenciamiento_cuestionario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -235,7 +235,7 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`id_usuario`, `user_name`, `user_password`, `user_is_active`, `id_persona`, `id_perfil`) VALUES
 (1, 'valeria123', '123', 1, 2, 1),
 (2, 'kev123', '123', 1, 1, 2),
-(3, 'jeffrey123', '123', 1, 6, 5),
+(3, 'jeffrey123', '123', 1, 6, 3),
 (4, 'samu123', '123', 1, 7, 1),
 (5, 'jean123', '123', 1, 8, 3),
 (6, 'johan123', '123', 1, 9, 1);
