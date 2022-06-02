@@ -13,9 +13,12 @@ public class UsuarioVO {
     // definir variables
      private String id_usuario, user_name, user_password, user_is_active, id_persona, id_perfil;
 
-    public UsuarioVO(String user_name) {
-        this.user_name = user_name;
+    public UsuarioVO(String user_name, String id_usuario) {
+        this.id_usuario = user_name;
+        this.user_name = id_usuario;
     }
+
+    
 
     public UsuarioVO() {
     }
@@ -76,4 +79,11 @@ public class UsuarioVO {
     public void setId_perfil(String id_perfil) {
         this.id_perfil = id_perfil;
     }
+
+    @Override
+    public String toString() {
+        return "UsuarioVO{" + "id_usuario=" + id_usuario + ", user_name=" + user_name + ", user_password=" + user_password + ", user_is_active=" + user_is_active + ", id_persona=" + id_persona + ", id_perfil=" + id_perfil + '}';
+    }
+    
+    
 }

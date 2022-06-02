@@ -5,8 +5,8 @@
  */
 package Controlador;
 
-import ModeloDAO.UsuarioDAO;
-import ModeloVO.UsuarioVO;
+import ModeloDAO.RespuestaDAO;
+import ModeloVO.RespuestaVO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -14,14 +14,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Sena
+ * @author kebin
  */
-@WebServlet(name = "UsuarioControlador", urlPatterns = {"/Usuario"})
-public class UsuarioControlador extends HttpServlet {
+@WebServlet(name = "RespuestaControlador", urlPatterns = {"/Respuesta"})
+public class RespuestaControlador extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,53 +33,32 @@ public class UsuarioControlador extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        
-        
-        
-        
         // #1 recibir datos de la vista
-        String id_usuario = request.getParameter("txtId");
-        String user_name = request.getParameter("txtUsuario");
-        String user_password = request.getParameter("txtClave");
-        String user_is_active = request.getParameter("txtActive");
-        String id_persona = request.getParameter("txtIdPersona");
-        String id_perfil = request.getParameter("txtIdPerfil");
-        
+        response.setContentType("text/html;charset=UTF-8");
+        String id_respuesta = request.getParameter("txtId");
+        String id_Op_respuesta = request.getParameter("txtOprrespuesta");
+        String id_pregunta = request.getParameter("txtId_pregunta");
+        int res_puntaje = Integer.parseInt(request.getParameter("txtPuntaje"));
+        String id_usuario = request.getParameter("txtId_usuario");
         int opcion = Integer.parseInt(request.getParameter("opcion"));
-
+        
         // #2 Quien tiene los datos de forma segura? el VO
-        UsuarioVO usuVO = new UsuarioVO(id_usuario, user_name, user_password, user_is_active, id_persona, id_perfil);
-
+        RespuestaVO resVO = new RespuestaVO(res_puntaje, id_respuesta, id_Op_respuesta, id_pregunta, id_usuario);
+        
         // #3 Quien hace las opreciones? el DAO
-        UsuarioDAO usuDAO = new UsuarioDAO(usuVO);
-
+        RespuestaDAO resDAO = new RespuestaDAO(resVO);
+        
         // #4 administrar todas las opreraciones del modulo
-        switch (opcion) {
-
-            case 1://metodo #4  iniciar sesión
-                if (usuDAO.iniciarSesion(user_name, user_password)) {
-                    
-                    HttpSession miSesion = request.getSession(true);
-                    usuVO = new UsuarioVO(id_usuario, user_name);
-                    miSesion.setAttribute("datosUsuario",usuVO);
-                    System.out.println(usuVO.toString());
-                    request.getRequestDispatcher("Menu.jsp").forward(request, response);
-                    
+        switch (opcion){
+            case 1:
+                if (resDAO.agrgarRegistro()) {
+                     request.setAttribute("mensajeExito", "La persona se registro corectamente !!");
                 } else {
-                    request.setAttribute("mensajeError", "Coregir datos !");
-                    request.getRequestDispatcher("IniciarSesion.jsp").forward(request, response);
+                    request.setAttribute("mensajeError", "La persona no se registro corectamente !!");
                 }
-                break;
-            case 2: //metodo para agrgar registro
-                if (usuDAO.agrgarRegistro()) {
-                    request.setAttribute("mensajeExito", "El usuario se registro corectamente !!");
-                } else {
-                    request.setAttribute("mensajeError", "El usuario no se registro corectamente !!");
-                }
-                request.getRequestDispatcher("registrarUsuario.jsp").forward(request, response);
-                break;
+                request.getRequestDispatcher("ConsultarPregunta.jsp").forward(request, response);
                 
+        
         }
         
         

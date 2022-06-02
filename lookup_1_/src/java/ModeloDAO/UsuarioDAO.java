@@ -54,6 +54,8 @@ public class UsuarioDAO extends Conexion implements Crud {
     public UsuarioDAO() {
     }
 
+   
+
     @Override
     public boolean agrgarRegistro() {
         try {

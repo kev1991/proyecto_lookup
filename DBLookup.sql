@@ -210,7 +210,7 @@ CREATE TABLE `respuesta` (
   `id_Op_respuesta` int(11) DEFAULT NULL,
   `id_pregunta` int(11) NOT NULL,
   `res_puntaje` int(5) NOT NULL,
-  `id_diligenciamiento_cuestionario` int(11) NOT NULL
+  `id_usuario` int(11) NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------

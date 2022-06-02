@@ -83,13 +83,17 @@ public final class ListarRespuestas_jsp extends org.apache.jasper.runtime.HttpJs
       out.write("                    <td> ");
       out.print( userVO.getUser_name());
       out.write("</td>\n");
-      out.write("                \n");
-      out.write("                \n");
+      out.write("                    \n");
+      out.write("                    \n");
       out.write("                </tr>\n");
       out.write("                ");
  }
       out.write("\n");
+      out.write("                \n");
       out.write("                <tr>\n");
+      out.write("                    \n");
+      out.write("                </tr>\n");
+      out.write("                \n");
       out.write("                ");
 
                     PreguntaVO perVO = new PreguntaVO();
@@ -99,17 +103,14 @@ public final class ListarRespuestas_jsp extends org.apache.jasper.runtime.HttpJs
                         perVO = listaPreguntas.get(i);
                 
       out.write("\n");
-      out.write("                \n");
+      out.write("                <tr>\n");
       out.write("                    <td> ");
       out.print( perVO.getPre_descripcion());
       out.write("</td>\n");
-      out.write("                    \n");
-      out.write("                    \n");
-      out.write("                    ");
+      out.write("                </tr>\n");
+      out.write("                ");
  }
       out.write("\n");
-      out.write("                </tr>\n");
-      out.write("                \n");
       out.write("            </table>\n");
       out.write("\n");
       out.write("        </form>\n");

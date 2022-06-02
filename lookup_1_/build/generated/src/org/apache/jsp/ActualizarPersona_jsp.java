@@ -3,17 +3,10 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import ModeloDAO.RespuestaDAO;
-import ModeloVO.RespuestaVO;
-import ModeloDAO.UsuarioDAO;
-import java.util.ArrayList;
-import ModeloDAO.PreguntaDAO;
-import ModeloVO.PreguntaVO;
-import ModeloVO.CuestionarioVO;
-import ModeloVO.UsuarioVO;
+import ModeloVO.PersonaVO;
 import ModeloVO.UsuarioVO;
 
-public final class ConsultarPregunta_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class ActualizarPersona_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -63,13 +56,6 @@ public final class ConsultarPregunta_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("\n");
       out.write("\n");
       out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
       out.write("<!DOCTYPE html>\n");
 
     response.setHeader("Pragma", "No-cache");
@@ -79,14 +65,16 @@ public final class ConsultarPregunta_jsp extends org.apache.jasper.runtime.HttpJ
       out.write('\n');
 
     HttpSession buscarSesion = (HttpSession) request.getSession();
-    String usuario = "";
-    String id ="";
+    String usuario = "", id="";
+    
     if (buscarSesion.getAttribute("datosUsuario") == null) {
         request.getRequestDispatcher("Home.html").forward(request, response);
     } else {
         UsuarioVO usuVO = (UsuarioVO) buscarSesion.getAttribute("datosUsuario");
+         
         usuario = usuVO.getUser_name();
         id = usuVO.getId_usuario();
+       
     }
 
 
@@ -137,9 +125,7 @@ public final class ConsultarPregunta_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("                ");
       out.print(usuario);
       out.write("\n");
-      out.write("                ");
-      out.print(id);
-      out.write("\n");
+      out.write("                \n");
       out.write("            </h2>\n");
       out.write("            <form method=\"post\" action=\"Sesiones\">\n");
       out.write("                <input type=\"submit\" value=\"Cerrar Sesion\">\n");
@@ -157,82 +143,94 @@ public final class ConsultarPregunta_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title>JSP Page</title>\n");
+      out.write("        <title>Actualizar Persona</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("    <center>\n");
-      out.write("        <h1>Responde las preguntas</h1>\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("        <form method=\"post\" action=\"Respuesta\">\n");
-      out.write("            <table border=\"\">\n");
-      out.write("\n");
-      out.write("                <tr>\n");
-      out.write("                    <th>obción respuest</th>\n");
-      out.write("                    <th>pregunta</th>\n");
-      out.write("                    <th>Respuesta</th>\n");
-      out.write("                    <th>Usuarios</th>\n");
-      out.write("\n");
-      out.write("                </tr>\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("                ");
-                    PreguntaDAO preDAO = new PreguntaDAO();
-                    for (PreguntaVO preVO : preDAO.Listar()) {
+      out.write("        <h1>Actualizar Persona!</h1>\n");
+      out.write("        \n");
+      out.write("         ");
 
-                
+            PersonaVO perVO = (PersonaVO) request.getAttribute("PersonaConsultada");
+            if (perVO != null) {
+        
       out.write("\n");
       out.write("\n");
+      out.write("        <form action=\"Persona\" method=\"post\">\n");
+      out.write("            <table>\n");
       out.write("                <tr>\n");
-      out.write("\n");
-      out.write("                    <td><input type=\"text\" name=\"txtOprrespuesta\"></td>\n");
-      out.write("\n");
-      out.write("                    <td> <textarea name=\"txtId_pregunta\" rows=\"2\" cols=\"54\" readonly=\"readonly\" value=\"");
-      out.print( preVO.getId_pregunta());
-      out.write("\" >");
-      out.print( preVO.getPre_descripcion());
-      out.write("</textarea></td>\n");
-      out.write("\n");
-      out.write("                    <td> \n");
-      out.write("                        <select name=\"txtPuntaje\">\n");
-      out.write("                            <option >Seleccione</option>\n");
-      out.write("                            <option value=\"1\">Siempre </option>\n");
-      out.write("                            <option value=\"2\">Casi siempre</option>\n");
-      out.write("                            <option value=\"3\">Algunas veces</option>\n");
-      out.write("                            <option value=\"4\">Casi nunca</option>\n");
-      out.write("                            <option value=\"5\">Nunca </option>\n");
-      out.write("\n");
-      out.write("                        </select>\n");
-      out.write("\n");
-      out.write("                    </td>\n");
-      out.write("                    ");
-
-                        UsuarioDAO resDAO = new UsuarioDAO();
-                        for (UsuarioVO resVO : resDAO.listar()) {
-                    
-      out.write("\n");
-      out.write("                    <td > <textarea type=\"text\" name=\"txtId_usuario\" readonly=\"readonly\" value=\"");
-      out.print( resVO.getId_usuario());
-      out.write("\">  ");
-      out.print(usuario);
-      out.write(" </textarea>  </td>\n");
+      out.write("                    <th>\n");
+      out.write("                        Nombre<br>\n");
+      out.write("                        <input type=\"text\" name=\"txtNombre\" value=\"");
+      out.print(perVO.getPer_nombre());
+      out.write("\"><br><br>\n");
+      out.write("                        Segundo<br>\n");
+      out.write("                        <input type=\"text\" name=\"txtNombre2\" value=\"");
+      out.print(perVO.getPer_segundo_nombre());
+      out.write("\"><br><br>\n");
+      out.write("                        Apellido<br>\n");
+      out.write("                        <input type=\"text\" name=\"txtApellido\" value=\"");
+      out.print(perVO.getPer_apellido());
+      out.write("\"><br><br>\n");
+      out.write("                        segundo Apellido<br>\n");
+      out.write("                        <input type=\"text\" name=\"txtApellido2\" value=\"");
+      out.print(perVO.getPer_segundo_apellido());
+      out.write("\"><br><br>\n");
+      out.write("                        Tipo Documento<br>\n");
+      out.write("                        <input type=\"text\" name=\"txtTypeDocumento\" value=\"");
+      out.print(perVO.getPer_tipo_documento());
+      out.write("\"><br><br>\n");
+      out.write("                        Numero documento<br>\n");
+      out.write("                        <input type=\"text\" name=\"txtNumDocumento\" value=\"");
+      out.print(perVO.getPer_numero_documento());
+      out.write("\"><br><br>\n");
+      out.write("                        Fecha de Nacimiento<br>\n");
+      out.write("                        <input type=\"text\" name=\"txtFechNacimiento\" value=\"");
+      out.print(perVO.getPer_fecha_nacimiento());
+      out.write("\"><br><br>\n");
+      out.write("                        Correo<br>\n");
+      out.write("                        <input type=\"text\" name=\"txtEmail\" value=\"");
+      out.print(perVO.getPer_email());
+      out.write("\"><br><br>\n");
+      out.write("                        Correo Corporativo<br>\n");
+      out.write("                        <input type=\"text\" name=\"txtEmail2\" value=\"");
+      out.print(perVO.getPer_email_corporativo());
+      out.write("\"><br><br>\n");
+      out.write("                        Cargo<br>\n");
+      out.write("                        <input type=\"text\" name=\"txtCargo\" value=\"");
+      out.print(perVO.getPer_cargo());
+      out.write("\"><br><br>\n");
+      out.write("                    </th>\n");
       out.write("                </tr>\n");
-      out.write("                ");
- }
-      out.write("\n");
-      out.write("                ");
-}
-      out.write("\n");
-      out.write("\n");
       out.write("            </table>\n");
-      out.write("            <button>Registrar</button>\n");
-      out.write("            <input type=\"hidden\" value=\"1\" name=\"opcion\">\n");
+      out.write("            <button>Actualizar</button>\n");
+      out.write("            <input type=\"hidden\" value=\"2\" name=\"opcion\">\n");
       out.write("\n");
       out.write("        </form>\n");
+      out.write("                 <div style=\"color: red;\">\n");
+      out.write("            ");
+
+                if (request.getAttribute("PersonaConsultada") != null) {
       out.write("\n");
+      out.write("            ");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${mensajeError}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\n");
+      out.write("            ");
+}
+      out.write("   \n");
+      out.write("                    \n");
+      out.write("                    \n");
+      out.write("        ");
+
+            } else {
+                request.getRequestDispatcher("ConsultarPersona.jsp").forward(request,response);
+            }
+        
+      out.write("\n");
+      out.write("        \n");
+      out.write("        \n");
+      out.write("        \n");
+      out.write("        \n");
       out.write("    </center>\n");
       out.write("</body>\n");
       out.write("</html>\n");

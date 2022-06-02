@@ -4,9 +4,14 @@
     Author     : kebin
 --%>
 
+<%@page import="ModeloDAO.RespuestaDAO"%>
+<%@page import="ModeloVO.RespuestaVO"%>
+<%@page import="ModeloDAO.UsuarioDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="ModeloDAO.PreguntaDAO"%>
 <%@page import="ModeloVO.PreguntaVO"%>
+<%@page import="ModeloVO.CuestionarioVO"%>
+<%@page import="ModeloVO.UsuarioVO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="Sesiones.jsp" %>
 <!DOCTYPE html>
@@ -16,27 +21,36 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <center>
-        <h1>Consultar Perosna!</h1>
+    <center>
+        <h1>Responde las preguntas</h1>
 
-        <form method="post" action="Pregunta">
+
+
+
+        <form method="post" action="Respuesta">
             <table border="">
 
                 <tr>
-                    <th> pregunta </th>
+                    <th>obción respuest</th>
+                    <th>pregunta</th>
+                    <th>Respuesta</th>
+                    <th>Usuarios</th>
 
                 </tr>
 
-                <%
-                    PreguntaVO preVO = new PreguntaVO();
-                    PreguntaDAO preDAO = new PreguntaDAO(preVO);
-                    ArrayList<PreguntaVO> listaPreguntas = preDAO.Listar();
-                    for (int i = 0; i < listaPreguntas.size(); i++) {
-                        preVO = listaPreguntas.get(i);
+
+
+                <%                    PreguntaDAO preDAO = new PreguntaDAO();
+                    for (PreguntaVO preVO : preDAO.Listar()) {
+
                 %>
 
                 <tr>
-                    <td> <%= preVO.getPre_descripcion()%></td>
+
+                    <td><input type="text" name="txtOprrespuesta"></td>
+
+                    <td> <textarea name="txtId_pregunta" rows="2" cols="54" readonly="readonly" value="<%= preVO.getId_pregunta()%>" ><%= preVO.getPre_descripcion()%></textarea></td>
+
                     <td> 
                         <select name="txtPuntaje">
                             <option >Seleccione</option>
@@ -49,15 +63,17 @@
                         </select>
 
                     </td>
-
-
+                   
+                    <td > <textarea type="text" name="txtId_usuario" readonly="readonly" value="1">  <%=usuario%> </textarea>  </td>
                 </tr>
-                <% }%>
+                
+                <%}%>
+
             </table>
+            <button>Registrar</button>
+            <input type="hidden" value="1" name="opcion">
 
         </form>
-        <a href="Menu.jsp" >Volver al menu</a>
-
 
     </center>
 </body>

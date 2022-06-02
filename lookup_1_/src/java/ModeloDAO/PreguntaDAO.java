@@ -30,6 +30,9 @@ public class PreguntaDAO extends Conexion implements Crud {
     private String sql;
 
     private String id_pregunta ="", pre_title ="", pre_descripcion ="",pre_is_active ="", pre_is_multiple ="", pre_create_at ="", pre_puntaje ="", id_cuestionario ="";
+
+    public PreguntaDAO() {
+    }
     
     //#2 Metodo pricipal para recibir los datos del VO 
     public PreguntaDAO(PreguntaVO preVO){

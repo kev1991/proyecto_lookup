@@ -14,12 +14,16 @@
 %>
 <%
     HttpSession buscarSesion = (HttpSession) request.getSession();
-    String usuario = "";
+    String usuario = "", id="";
+    
     if (buscarSesion.getAttribute("datosUsuario") == null) {
         request.getRequestDispatcher("Home.html").forward(request, response);
     } else {
         UsuarioVO usuVO = (UsuarioVO) buscarSesion.getAttribute("datosUsuario");
+         
         usuario = usuVO.getUser_name();
+        id = usuVO.getId_usuario();
+       
     }
 
 %>
@@ -67,6 +71,7 @@
         <div style="float:right;">
             <h2 style="color: orange">  <br>                   
                 <%=usuario%>
+                
             </h2>
             <form method="post" action="Sesiones">
                 <input type="submit" value="Cerrar Sesion">
