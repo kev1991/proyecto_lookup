@@ -21,7 +21,7 @@ public class RespuestaVO {
     
     
     //#3 crear constructor lleno 
-    public RespuestaVO(int res_puntaje, String id_respuesta, String id_Op_respuesta, String id_pregunta, String id_usuario) {
+    public RespuestaVO( String id_respuesta, String id_Op_respuesta, String id_pregunta, int res_puntaje,String id_usuario) {
        
         this.id_respuesta = id_respuesta;
         this.id_Op_respuesta = id_Op_respuesta;

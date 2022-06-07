@@ -28,10 +28,10 @@
 
 
         <form method="post" action="Respuesta">
-            <table border="">
+            <table border="10">
 
                 <tr>
-                    <th>obción respuest</th>
+                    <th>opción respuesta</th>
                     <th>pregunta</th>
                     <th>Respuesta</th>
                     <th>Usuarios</th>
@@ -42,14 +42,14 @@
 
                 <%                    PreguntaDAO preDAO = new PreguntaDAO();
                     for (PreguntaVO preVO : preDAO.Listar()) {
-
+                
                 %>
 
                 <tr>
 
-                    <td><input type="text" name="txtOprrespuesta"></td>
+                    <td><input type="text" name="txtOprrespuesta"readonly="readonly" value="1"></td>
 
-                    <td> <textarea name="txtId_pregunta" rows="2" cols="54" readonly="readonly" value="<%= preVO.getId_pregunta()%>" ><%= preVO.getPre_descripcion()%></textarea></td>
+                    <td> <textarea name="txtId_pregunta" rows="1" cols="1" readonly="readonly"  ><%= preVO.getId_pregunta()%></textarea> <%= preVO.getPre_descripcion()%></td>
 
                     <td> 
                         <select name="txtPuntaje">
@@ -64,13 +64,21 @@
 
                     </td>
                    
-                    <td > <textarea type="text" name="txtId_usuario" readonly="readonly" value="1">  <%=usuario%> </textarea>  </td>
+                    <td > 
+                        <select name="txtId_usuario">
+                            <option value="1"> <%=usuario%> </option>
+                            
+
+                        </select>
+                    
+                    </td>
                 </tr>
                 
                 <%}%>
-
+               
+                
             </table>
-            <button>Registrar</button>
+            <button>Enviar</button>
             <input type="hidden" value="1" name="opcion">
 
         </form>

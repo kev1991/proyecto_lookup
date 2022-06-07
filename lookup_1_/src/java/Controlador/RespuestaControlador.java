@@ -43,7 +43,7 @@ public class RespuestaControlador extends HttpServlet {
         int opcion = Integer.parseInt(request.getParameter("opcion"));
         
         // #2 Quien tiene los datos de forma segura? el VO
-        RespuestaVO resVO = new RespuestaVO(res_puntaje, id_respuesta, id_Op_respuesta, id_pregunta, id_usuario);
+        RespuestaVO resVO = new RespuestaVO(id_respuesta, id_Op_respuesta, id_pregunta, res_puntaje, id_usuario);
         
         // #3 Quien hace las opreciones? el DAO
         RespuestaDAO resDAO = new RespuestaDAO(resVO);

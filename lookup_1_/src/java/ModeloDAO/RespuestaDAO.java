@@ -52,7 +52,7 @@ public class RespuestaDAO extends Conexion implements Crud {
             id_usuario = resVO.getId_usuario();
 
         } catch (Exception e) {
-            Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(RespuestaDAO.class.getName()).log(Level.SEVERE, null, e);
         }
 
     }
@@ -75,9 +75,21 @@ public class RespuestaDAO extends Conexion implements Crud {
             puente.executeUpdate();
             operacion = true;
         } catch (Exception e) {
+            Logger.getLogger(RespuestaDAO.class.getName()).log(Level.SEVERE, null, e);
+
+        } finally {
+            try {
+                this.cerrarConexion();
+            } catch (Exception e) {
+                Logger.getLogger(RespuestaDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
         }
         return operacion;
     }
+    
+    
+    
+    
 
     @Override
     public boolean actualizarRegistro() {
@@ -99,8 +111,8 @@ public class RespuestaDAO extends Conexion implements Crud {
         mensajero= puente.executeQuery();
         
         while(mensajero.next()){
-         RespuestaVO resVO = new RespuestaVO(mensajero.getInt(1), mensajero.getString(2),
-                        mensajero.getString(3), mensajero.getString(4), mensajero.getString(5));
+         RespuestaVO resVO = new RespuestaVO(mensajero.getString(1), mensajero.getString(2),
+                        mensajero.getString(3), mensajero.getInt(4), mensajero.getString(5));
         
          listaRespuesta.add(resVO);
          

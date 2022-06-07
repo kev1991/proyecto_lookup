@@ -79,14 +79,16 @@ public final class ConsultarPregunta_jsp extends org.apache.jasper.runtime.HttpJ
       out.write('\n');
 
     HttpSession buscarSesion = (HttpSession) request.getSession();
-    String usuario = "";
-    String id ="";
+    String usuario = "", id="";
+    
     if (buscarSesion.getAttribute("datosUsuario") == null) {
         request.getRequestDispatcher("Home.html").forward(request, response);
     } else {
         UsuarioVO usuVO = (UsuarioVO) buscarSesion.getAttribute("datosUsuario");
+         
         usuario = usuVO.getUser_name();
         id = usuVO.getId_usuario();
+       
     }
 
 
@@ -137,9 +139,7 @@ public final class ConsultarPregunta_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("                ");
       out.print(usuario);
       out.write("\n");
-      out.write("                ");
-      out.print(id);
-      out.write("\n");
+      out.write("                \n");
       out.write("            </h2>\n");
       out.write("            <form method=\"post\" action=\"Sesiones\">\n");
       out.write("                <input type=\"submit\" value=\"Cerrar Sesion\">\n");
@@ -167,10 +167,10 @@ public final class ConsultarPregunta_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("\n");
       out.write("\n");
       out.write("        <form method=\"post\" action=\"Respuesta\">\n");
-      out.write("            <table border=\"\">\n");
+      out.write("            <table border=\"10\">\n");
       out.write("\n");
       out.write("                <tr>\n");
-      out.write("                    <th>obción respuest</th>\n");
+      out.write("                    <th>opción respuesta</th>\n");
       out.write("                    <th>pregunta</th>\n");
       out.write("                    <th>Respuesta</th>\n");
       out.write("                    <th>Usuarios</th>\n");
@@ -182,19 +182,19 @@ public final class ConsultarPregunta_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("                ");
                     PreguntaDAO preDAO = new PreguntaDAO();
                     for (PreguntaVO preVO : preDAO.Listar()) {
-
+                
                 
       out.write("\n");
       out.write("\n");
       out.write("                <tr>\n");
       out.write("\n");
-      out.write("                    <td><input type=\"text\" name=\"txtOprrespuesta\"></td>\n");
+      out.write("                    <td><input type=\"text\" name=\"txtOprrespuesta\"readonly=\"readonly\" value=\"1\"></td>\n");
       out.write("\n");
-      out.write("                    <td> <textarea name=\"txtId_pregunta\" rows=\"2\" cols=\"54\" readonly=\"readonly\" value=\"");
+      out.write("                    <td> <textarea name=\"txtId_pregunta\" rows=\"1\" cols=\"1\" readonly=\"readonly\"  >");
       out.print( preVO.getId_pregunta());
-      out.write("\" >");
+      out.write("</textarea> ");
       out.print( preVO.getPre_descripcion());
-      out.write("</textarea></td>\n");
+      out.write("</td>\n");
       out.write("\n");
       out.write("                    <td> \n");
       out.write("                        <select name=\"txtPuntaje\">\n");
@@ -208,27 +208,26 @@ public final class ConsultarPregunta_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("                        </select>\n");
       out.write("\n");
       out.write("                    </td>\n");
-      out.write("                    ");
-
-                        UsuarioDAO resDAO = new UsuarioDAO();
-                        for (UsuarioVO resVO : resDAO.listar()) {
-                    
-      out.write("\n");
-      out.write("                    <td > <textarea type=\"text\" name=\"txtId_usuario\" readonly=\"readonly\" value=\"");
-      out.print( resVO.getId_usuario());
-      out.write("\">  ");
+      out.write("                   \n");
+      out.write("                    <td > \n");
+      out.write("                        <select name=\"txtId_usuario\">\n");
+      out.write("                            <option value=\"1\"> ");
       out.print(usuario);
-      out.write(" </textarea>  </td>\n");
-      out.write("                </tr>\n");
-      out.write("                ");
- }
+      out.write(" </option>\n");
+      out.write("                            \n");
       out.write("\n");
+      out.write("                        </select>\n");
+      out.write("                    \n");
+      out.write("                    </td>\n");
+      out.write("                </tr>\n");
+      out.write("                \n");
       out.write("                ");
 }
       out.write("\n");
-      out.write("\n");
+      out.write("               \n");
+      out.write("                \n");
       out.write("            </table>\n");
-      out.write("            <button>Registrar</button>\n");
+      out.write("            <button>Enviar</button>\n");
       out.write("            <input type=\"hidden\" value=\"1\" name=\"opcion\">\n");
       out.write("\n");
       out.write("        </form>\n");
