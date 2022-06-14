@@ -125,41 +125,51 @@
                                                     area.
                                                 </p>
                                             </div>
-                                            <form action="#" method="post">
-                                                <div class="form-group first">
 
-                                                    <input type="text" class="form-control" id="username" name="txtUsuario" placeholder="Usuario">
+                                            <div class="form-group first">
 
-                                                </div>
+                                                <input type="text" class="form-control" id="username" name="txtUsuario" placeholder="Usuario">
 
-                                                <div class="form-group last mb-4">
+                                            </div>
 
-                                                    <input type="password" class="form-control" id="password" name="txtClave" placeholder="Contraseña">
+                                            <div class="form-group last mb-4">
 
-                                                </div>
+                                                <input type="password" class="form-control" id="password" name="txtClave" placeholder="Contraseña">
 
-                                                <div class="d-flex mb-3 align-items-center">
-                                                    <label class="control control--checkbox mb-0"><span
-                                                            class="caption">Recordar
-                                                            contraseña </span>
-                                                        <input type="checkbox" checked="checked" />
-                                                        <div class="control__indicator"></div>
-                                                </div>
-                                                <div class="d-flex mb-3 align-items-center">
-                                                    <label class="control control--checkbox mb-0"><span
-                                                            class="caption">Acepta
-                                                            terminos y condiciones</span>
-                                                        <input type="checkbox" checked="checked" />
-                                                        <div class="control__indicator"></div>
-                                                    </label>
-                                                    <br>
-                                                </div>
-                                                <div class="contenedor">
-                                                    <button class="btn btn-primary" >Iniciar Sesión</button>
-                                                    <input type="hidden" value="1" name="opcion">
-                                                </div>
+                                            </div>
 
-                                                </a>
+                                            <div class="d-flex mb-3 align-items-center">
+                                                <label class="control control--checkbox mb-0"><span
+                                                        class="caption">Recordar
+                                                        contraseña </span>
+                                                    <input type="checkbox" checked="checked" />
+                                                    <div class="control__indicator"></div>
+                                            </div>
+                                            <div class="d-flex mb-3 align-items-center">
+                                                <label class="control control--checkbox mb-0"><span
+                                                        class="caption">Acepta
+                                                        terminos y condiciones</span>
+                                                    <input type="checkbox" checked="checked" />
+                                                    <div class="control__indicator"></div>
+                                                </label>
+                                                <br>
+                                            </div>
+
+
+                                            <div class="contenedor">
+                                                <button class="btn btn-primary" >Iniciar Sesión</button>
+                                                <input type="hidden" value="1" name="opcion">
+                                            </div>
+                                            <div style="color: red;">
+                                                <%
+                                                    if (request.getAttribute("mensajeError") != null) {%>
+                                                ${mensajeError}
+                                                <% } else {%>
+
+                                                ${mensajeExito}
+                                                <%}%>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -171,7 +181,7 @@
 
 
         </div>
-        
+
 
 
 

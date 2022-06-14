@@ -14,43 +14,46 @@
         <title>Actualizar Perfil</title>
     </head>
     <body>
-    <center>
+        <div class="padre">
+            <div class="hijo">
+                <center>
 
-        <h1>Actualizar Perfil!</h1>
-        <%
-            PerfilVO perfVO = (PerfilVO) request.getAttribute("PerfilConsultado");
-            if (perfVO != null) {
-        %>
-        
-        <form action="Perfil" method="post">
-            <table>
-                <tr>
-                    <th>
-                        Nombre<br>
-                        <input type="text" name="txtNombre" value="<%=perfVO.getPerfil()%>"><br><br>
-                        
-                    </th>
-                </tr>
-            </table>
-            <button>Actualizar</button>
-            <input type="hidden" value="2" name="opcion">
+                    <h1>Actualizar Perfil!</h1>
+                    <%            PerfilVO perfVO = (PerfilVO) request.getAttribute("PerfilConsultado");
+                        if (perfVO != null) {
+                    %>
 
-        </form>
-                          <%
-                if (request.getAttribute("PerfilConsultado") != null) {%>
-            ${mensajeError}
-            <%}%>   
-                    
-                    
-        <%
-            } else {
-                request.getRequestDispatcher("ConsultarPerfil.jsp").forward(request,response);
-            }
-        %>  
-                        
-                        
-                        
-    </center>
+                    <form action="Perfil" method="post">
+                        <table>
+                            <tr>
+                                <th>
+                                    Nombre<br>
+                                    <input type="text" name="txtNombre" value="<%=perfVO.getPerfil()%>"><br><br>
+
+                                </th>
+                            </tr>
+                        </table>
+                        <button>Actualizar</button>
+                        <input type="hidden" value="2" name="opcion">
+
+                    </form>
+                    <%
+                              if (request.getAttribute("PerfilConsultado") != null) {%>
+                    ${mensajeError}
+                    <%}%>   
+
+
+                    <%
+                        } else {
+                            request.getRequestDispatcher("ConsultarPerfil.jsp").forward(request, response);
+                        }
+                    %>  
+
+
+
+                </center>
+            </div>
+        </div>
     </body>
-    
+
 </html>

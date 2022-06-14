@@ -18,71 +18,78 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="assets/css/centro.css" rel="stylesheet" type="text/css"/>
         <title>JSP Page</title>
     </head>
     <body>
-    <center>
-        <h1>Responde las preguntas</h1>
+        <div class="padre">
+            <div class="hijo">
+                <center>
+                    <h1>Responde las preguntas</h1>
 
 
 
 
-        <form method="post" action="Respuesta">
-            <table border="10">
+                    <form method="post" action="Respuesta">
+                        <table border="">
 
-                <tr>
-                    <th>opción respuesta</th>
-                    <th>pregunta</th>
-                    <th>Respuesta</th>
-                    <th>Usuarios</th>
+                            <tr>
+                                <th>opción respuesta</th>
+                                <th>pregunta</th>
+                                <th>Respuesta</th>
+                                <th>Usuarios</th>
 
-                </tr>
+                            </tr>
 
 
 
-                <%                    PreguntaDAO preDAO = new PreguntaDAO();
-                    for (PreguntaVO preVO : preDAO.Listar()) {
-                
-                %>
-
-                <tr>
-
-                    <td><input type="text" name="txtOprrespuesta"readonly="readonly" value="1"></td>
-
-                    <td> <textarea name="txtId_pregunta" rows="1" cols="1" readonly="readonly"  ><%= preVO.getId_pregunta()%></textarea> <%= preVO.getPre_descripcion()%></td>
-
-                    <td> 
-                        <select name="txtPuntaje">
-                            <option >Seleccione</option>
-                            <option value="1">Siempre </option>
-                            <option value="2">Casi siempre</option>
-                            <option value="3">Algunas veces</option>
-                            <option value="4">Casi nunca</option>
-                            <option value="5">Nunca </option>
-
-                        </select>
-
-                    </td>
-                   
-                    <td > 
-                        <select name="txtId_usuario">
-                            <option value="1"> <%=usuario%> </option>
+                            <%  
+                                PreguntaDAO preDAO = new PreguntaDAO();
+                                for (PreguntaVO preVO : preDAO.Listar()) {
+                            %>
                             
+                            
+                                   
 
-                        </select>
-                    
-                    </td>
-                </tr>
-                
-                <%}%>
-               
-                
-            </table>
-            <button>Enviar</button>
-            <input type="hidden" value="1" name="opcion">
+                            <tr>
 
-        </form>
+                                <td><input type="text" name="txtOprrespuesta"readonly="readonly" value="1"></td>
 
-    </center>
-</body>
+                                <td> <textarea name="txtId_pregunta" rows="1" cols="1" readonly="readonly"  ><%= preVO.getId_pregunta()%></textarea> <%= preVO.getPre_descripcion()%></td>
+
+                                <td> 
+                                    <select name="txtPuntaje">
+                                        <option >Seleccione</option>
+                                        <option value="1">Siempre </option>
+                                        <option value="2">Casi siempre</option>
+                                        <option value="3">Algunas veces</option>
+                                        <option value="4">Casi nunca</option>
+                                        <option value="5">Nunca </option>
+
+                                    </select>
+
+                                </td>
+
+                                <td > 
+                                    <select name="txtId_usuario" >
+                                        <option value="1"> <%=usuario%> </option>
+                                    </select>
+
+                                </td>
+                            </tr>
+                            <%}
+                                
+                            %>
+
+
+                        </table>
+                        <button>Enviar</button>
+                        <input type="hidden" value="1" name="opcion">
+
+                    </form>
+
+                </center>
+            </div>
+        </div>
+    </body>
 </html>

@@ -15,50 +15,56 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="assets/css/centro.css" rel="stylesheet" type="text/css"/>
         <title>JSP Page</title>
     </head>
     <body>
-        <form>
-            <table border="">
+        <div class="padre">
+            <div class="hijo">
+                <form>
+                    <table border="">
 
-                <tr>
-                    <th> Usuario </th>
-                    <th> pregunta  </th>
-                    <th> puntaje </th>
-                      
-                </tr>
-<%
-                    UsuarioVO userVO = new UsuarioVO();
-                    UsuarioDAO userDAO = new UsuarioDAO(userVO);
-                    ArrayList<UsuarioVO> listarUsuarios = userDAO.listar();
-                    for (int i = 0; i < listarUsuarios.size(); i++) {
-                        userVO = listarUsuarios.get(i);
-                %>
-                <tr>
-                    <td> <%= userVO.getUser_name()%></td>
-                    
-                    
-                </tr>
-                <% }%>
-                
-                <tr>
-                    
-                </tr>
-                
-                <%
-                    PreguntaVO perVO = new PreguntaVO();
-                    PreguntaDAO perDAO = new PreguntaDAO(perVO);
-                    ArrayList<PreguntaVO> listaPreguntas = perDAO.Listar();
-                    for (int i = 0; i < listaPreguntas.size(); i++) {
-                        perVO = listaPreguntas.get(i);
-                %>
-                <tr>
-                    <td> <%= perVO.getPre_descripcion()%></td>
-                </tr>
-                <% }%>
-            </table>
+                        <tr>
+                            <th> Usuario </th>
+                            <th> pregunta  </th>
+                            <th> puntaje </th>
 
-        </form>
-<a href="Menu.jsp" >Volver al menu</a>
+                        </tr>
+                        <%
+                            UsuarioVO userVO = new UsuarioVO();
+                            UsuarioDAO userDAO = new UsuarioDAO(userVO);
+                            ArrayList<UsuarioVO> listarUsuarios = userDAO.listar();
+                            for (int i = 0; i < listarUsuarios.size(); i++) {
+                                userVO = listarUsuarios.get(i);
+                        %>
+                        <tr>
+                            <td> <%= userVO.getUser_name()%></td>
+
+
+                        </tr>
+                        <% }%>
+
+                        <tr>
+
+                        </tr>
+
+                        <%
+                            PreguntaVO perVO = new PreguntaVO();
+                            PreguntaDAO perDAO = new PreguntaDAO(perVO);
+                            ArrayList<PreguntaVO> listaPreguntas = perDAO.Listar();
+                            for (int i = 0; i < listaPreguntas.size(); i++) {
+                                perVO = listaPreguntas.get(i);
+                        %>
+                        <tr>
+                            <td> <%= perVO.getPre_descripcion()%></td>
+                        </tr>
+                        <% }%>
+                    </table>
+
+                </form>
+                <a href="Menu.jsp" >Volver al menu</a>
+
+            </div>
+        </div>
     </body>
 </html>

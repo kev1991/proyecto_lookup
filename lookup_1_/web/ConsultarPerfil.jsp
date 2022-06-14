@@ -16,59 +16,62 @@
         <title>Consultar Perfil</title>
     </head>
     <body>
-    <center>
-        <h1>Consultar Perfil</h1>
-        <form method="post" action="Perfil">
+        <div class="padre">
+            <div class="hijo">
+                <center>
+                    <h1>Consultar Perfil</h1>
+                    <form method="post" action="Perfil">
 
-            <table>
-                <tr>
-                    <th>
-                        Id perfil<br>
-                        <input type="text" name="txtId"><br><br>
-                        <button>Actualizar</button>
-                        <input type="hidden" value="3" name="opcion">
+                        <table>
+                            <tr>
+                                <th>
+                                    Id perfil<br>
+                                    <input type="text" name="txtId"><br><br>
+                                    <button>Actualizar</button>
+                                    <input type="hidden" value="3" name="opcion">
 
-                    </th>
-                </tr>
-            </table><br><br>                     
+                                </th>
+                            </tr>
+                        </table><br><br>                     
 
-        </form><br>
-        <div style="color: red;">
-            <%
-                if (request.getAttribute("mensajeError") != null) {%>
-            ${mensajeEexito}
-            <%}%>
-        </div>    <br><br>
-        
-        
-        <form>
-            <table border="">
+                    </form><br>
+                    <div style="color: red;">
+                        <%                if (request.getAttribute("mensajeError") != null) {%>
+                        ${mensajeEexito}
+                        <%}%>
+                    </div>    <br><br>
 
-                <tr>
-                    <th> ID </th>
-                    <th> Perfil </th>
-                </tr>
 
-                <%
-                    PerfilVO perfVO = new PerfilVO();
-                    PerfilDAO perfDAO = new PerfilDAO(perfVO);
-                    ArrayList<PerfilVO> listarPerfil = perfDAO.Listar();
-                    for (int i = 0; i < listarPerfil.size(); i++) {
-                        perfVO = listarPerfil.get(i);
-                %>
+                    <form>
+                        <table border="">
 
-                <tr>
-                    <td> <%= perfVO.getId_perfil()%></td>
-                    <td> <%= perfVO.getPerfil()%></td>
-                    
+                            <tr>
+                                <th> ID </th>
+                                <th> Perfil </th>
+                            </tr>
 
-                </tr>
-                <% }%>
-            </table>
+                            <%
+                                PerfilVO perfVO = new PerfilVO();
+                                PerfilDAO perfDAO = new PerfilDAO(perfVO);
+                                ArrayList<PerfilVO> listarPerfil = perfDAO.Listar();
+                                for (int i = 0; i < listarPerfil.size(); i++) {
+                                    perfVO = listarPerfil.get(i);
+                            %>
 
-        </form>
-            <a href="Menu.jsp" >Volver al menu</a>
-            <a href="Home.html" >Volver al home</a>
-    </center>
+                            <tr>
+                                <td> <%= perfVO.getId_perfil()%></td>
+                                <td> <%= perfVO.getPerfil()%></td>
+
+
+                            </tr>
+                            <% }%>
+                        </table>
+
+                    </form>
+                    <a href="Menu.jsp" >Volver al menu</a>
+                    <a href="Home.html" >Volver al home</a>
+                </center>
+            </div>
+        </div>
     </body>
 </html>

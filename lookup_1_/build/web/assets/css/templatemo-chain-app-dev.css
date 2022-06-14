@@ -1122,28 +1122,28 @@ html,body {
   }
   
   .card1{
-    background-image: url(/assets/images/accesibilidad.jpg);
+    background-image: url(../assets/images/accesibilidad.jpg);
     background-size: contain;
     
   }
   
   .card2{
-    background-image: url(/assets/images/adaptabilidad.jpg);
+    background-image: url(../assets/images/adaptabilidad.jpg);
     background-size:139%
   }
   
   .card3{
-    background-image: url(/assets/images/buen\ rendimiento.jpg);
+    background-image: url(../assets/images/buen\ rendimiento.jpg);
     background-size: contain;
   }
   
   .card4{
-    background-image: url(/assets/images/facil\ uso.png);
+    background-image: url(../assets/images/facil\ uso.png);
     background-size: contain;
   }
   
   .card5{
-    background-image: url(/assets/images/flexibilidad.jpg);
+    background-image: url(../assets/images/flexibilidad.jpg);
     background-size: contain;
   }
   

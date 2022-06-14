@@ -13,9 +13,13 @@
         <title>Registrar Usuario</title>
     </head>
     <body>
-    <center>
-        <h1>Registrar Usuario</h1>
-        
-    </center>
+        <div class="padre">
+            <div class="hijo">
+                <center>
+                    <h1>Registrar Usuario</h1>
+
+                </center>
+            </div>
+        </div>
     </body>
 </html>

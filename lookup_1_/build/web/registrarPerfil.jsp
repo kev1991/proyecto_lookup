@@ -13,30 +13,31 @@
         <title>Registrar Perfil</title>
     </head>
     <body>
-        
-        
-        <h1>Registrar Perfil</h1>
-        <form method="post" action="Perfil">
-            <table>
-                <tr>
-                    Nombre <br>
-                <input type="text" name="txtNombre"><br><br>              
-                </tr>
-            </table><br>
-            <button style="background-color: orange;">Registrar</button>
-            <input type="hidden" value="1" name="opcion">
-            
-        </form>
-        <div style="color: red;">
-            <%
-                if (request.getAttribute("mensajeError") != null) {%>
-            ${mensajeError}
-            
-            <% } else {%>
-            ${mensajeExito}
-            <%}%>
-        </div>
-                    <a href="Menu.jsp" >Volver al menu</a>
+        <div class="padre">
+            <div class="hijo">
 
+                <h1>Registrar Perfil</h1>
+                <form method="post" action="Perfil">
+                    <table>
+                        <tr>
+                            Nombre <br>
+                        <input type="text" name="txtNombre"><br><br>              
+                        </tr>
+                    </table><br>
+                    <button style="background-color: orange;">Registrar</button>
+                    <input type="hidden" value="1" name="opcion">
+
+                </form>
+                <div style="color: red;">
+                    <%                if (request.getAttribute("mensajeError") != null) {%>
+                    ${mensajeError}
+
+                    <% } else {%>
+                    ${mensajeExito}
+                    <%}%>
+                </div>
+                <a href="Menu.jsp" >Volver al menu</a>
+            </div>
+        </div>
     </body>
 </html>

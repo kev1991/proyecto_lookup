@@ -1,0 +1,46 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 13-jun-2022, 13:03:57
+    Author     : kebin
+*/
+
+.padre {
+    margin: 5rem;
+
+    /*IMPORTANTE*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hijo {
+    text-align: center;
+    padding: auto;
+    padding-top: auto; 
+    padding-left: auto;
+}
+
+.footer {
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    color: ;
+}
+
+.flex{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    
+}
+.flex div{
+    padding-left:50px;
+}

@@ -13,29 +13,32 @@
         <title>Registrar Categoria</title>
     </head>
     <body>
-    <center>
-        <h1>Registrar Categoria</h1>
-        <form method="post" action="CategoriCuestionario">
-            <table>
-                <tr>
-                    Nombre Categoria <br>
-                <input type="text" name="txtNombreCat"><br><br>              
-                </tr>
-            </table><br>
-            <button style="background-color: orange;">Registrar</button>
-            <input type="hidden" value="1" name="opcion">
-            
-        </form>
-        <div style="color: red;">
-            <%
-                if (request.getAttribute("mensajeError") != null) {%>
-            ${mensajeError}
-            
-            <% } else {%>
-            ${mensajeExito}
-            <%}%>
+        <div class="padre">
+            <div class="hijo">
+                <center>
+                    <h1>Registrar Categoria</h1>
+                    <form method="post" action="CategoriCuestionario">
+                        <table>
+                            <tr>
+                                Nombre Categoria <br>
+                            <input type="text" name="txtNombreCat"><br><br>              
+                            </tr>
+                        </table><br>
+                        <button style="background-color: orange;">Registrar</button>
+                        <input type="hidden" value="1" name="opcion">
+
+                    </form>
+                    <div style="color: red;">
+                        <%                if (request.getAttribute("mensajeError") != null) {%>
+                        ${mensajeError}
+
+                        <% } else {%>
+                        ${mensajeExito}
+                        <%}%>
+                    </div>
+                    <a href="Menu.jsp" >Volver al menu</a>
+                </center>
+            </div>
         </div>
-        <a href="Menu.jsp" >Volver al menu</a>
-    </center>
     </body>
 </html>
